@@ -17,9 +17,15 @@ html, body {
 .form-control{
     border: none;
     border-bottom: 1px solid;
-outline:  none;
-width: 100%;
-display: block;
-padding: 10px 0px;
-font-size: 1.2em;
+    outline:  none;
+    width: 100%;
+    display: block;
+    padding: 10px 0px;
+    font-size: 1.2em;
+}
+.btn
+{
+    background-color: inherit;
+    border: none;
+    outline: NONE;
 }

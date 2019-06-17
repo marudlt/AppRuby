@@ -3,4 +3,5 @@ Rails.application.routes.draw do
   get 'welcome/index'
   get 'aulas/index'
   get 'aulas/new'
+  resources :aulas
 end

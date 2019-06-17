@@ -14,12 +14,12 @@ class AulasController < ApplicationController
   def create
       @aula = Aula.new(
         Numero: params[:aula][:Numero],
-        Piso: params[:aula][Piso], 
-        Capacidad:  params[:aula][Capacidad])
-      @Aula.save
-      redirect_to article_path(@Aula)
+        Piso: params[:aula][:Piso], 
+        Capacidad:  params[:aula][:Capacidad])
+      @aula.save
+      redirect_to aulas_path(@aula)
     end
    def show
-      @Aula = Aula.find(params[:id])
+      @aula = Aula.find(params[:id])
     end
 end
