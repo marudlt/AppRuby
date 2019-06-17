@@ -1,17 +1,18 @@
 <div style="width:80%; margin:0 auto;">
 
 <h1> Crear Aulas </h1>
+<%= form_for (@aulas) do |f| %> 
+    <div class="field" >
+        <%= f.text_field :Numero, 
+                    placeholder: "Numero de aula" %>
+        <%= f.text_field :Piso, 
+                    placeholder: "Piso del aula" %>
+        <%= f.text_field :Capacidad, 
+                    placeholder: "Capacidad del aula" %>
+    </div>
 
-<%= form_for(@aula) do |f| %>
-<div class="field">
-<%= f.text_field :Numero, placeholder: "Numero de aula", style:"height:10px;" class:"form-control" %>
-<%= f.text_field :Piso, placeholder: "Piso del aula" %>
-<%= f.text_field :Capacidad, placeholder: "Capacidad del aula"
-</div>
-
-<div class="field" >
-<%= f.submit "Guardr", class:"btn be-red white" %>
-</div>
-
+    <div class="field" >
+    <%= f.submit "Guardar", class:"btn be-red white" %>
+    </div>
 <%end%>
 </div>
