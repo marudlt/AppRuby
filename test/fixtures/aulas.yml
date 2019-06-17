@@ -1,13 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  id: MyString
   Numero: 1
   Piso: 1
   Capacidad: 1
 
 two:
-  id: MyString
   Numero: 1
   Piso: 1
   Capacidad: 1
