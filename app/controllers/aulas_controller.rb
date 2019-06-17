@@ -1,9 +1,11 @@
 class AulasController < ApplicationController
   def index
+    #todos los registros
     @aulas = Aula.all
   end
   #GET /aulas/:id
   def show 
+    #el registro por id
     @aula = aulas.find(params[:id])
   end
   #GET /aulas/new
@@ -16,10 +18,10 @@ class AulasController < ApplicationController
         Numero: params[:aula][:Numero],
         Piso: params[:aula][:Piso], 
         Capacidad:  params[:aula][:Capacidad])
-      @aula.save
-      redirect_to aulas_path(@aula)
+      if @aula.save
+        redirect_to aulas_path(@aula)
+      else
+        render :new
+      end
     end
-   def show
-      @aula = Aula.find(params[:id])
-    end
-end
+  end
