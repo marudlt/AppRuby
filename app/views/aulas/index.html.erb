@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Aulas</h1>
+<h1>Generador de Aulas</h1>
 
 <table>
   <thead>
@@ -18,9 +18,9 @@
         <td><%= aula.numero %></td>
         <td><%= aula.piso %></td>
         <td><%= aula.capacidad %></td>
-        <td><%= link_to 'Show', aula %></td>
-        <td><%= link_to 'Edit', edit_aula_path(aula) %></td>
-        <td><%= link_to 'Destroy', aula, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Mostrar', aula %></td>
+        <td><%= link_to 'Editar', edit_aula_path(aula) %></td>
+        <td><%= link_to 'Eliminar', aula, method: :delete, data: { confirm: '¿Estas seguro?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -28,4 +28,5 @@
 
 <br>
 
-<%= link_to 'New Aula', new_aula_path %>
+<%= link_to 'Nueva Aula', new_aula_path %>
+<a href="/">Volver a página principal</a>
