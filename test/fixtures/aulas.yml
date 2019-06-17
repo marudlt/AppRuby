@@ -1,11 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  Numero: 1
-  Piso: 1
-  Capacidad: 1
+  numero: 1
+  piso: 1
+  capacidad: 1
 
 two:
-  Numero: 1
-  Piso: 1
-  Capacidad: 1
+  numero: 1
+  piso: 1
+  capacidad: 1

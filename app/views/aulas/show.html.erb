@@ -1,1 +1,19 @@
-<h1>Pantalla Show</h1>
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Numero:</strong>
+  <%= @aula.numero %>
+</p>
+
+<p>
+  <strong>Piso:</strong>
+  <%= @aula.piso %>
+</p>
+
+<p>
+  <strong>Capacidad:</strong>
+  <%= @aula.capacidad %>
+</p>
+
+<%= link_to 'Edit', edit_aula_path(@aula) %> |
+<%= link_to 'Back', aulas_path %>

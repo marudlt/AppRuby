@@ -10,12 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_17_170208) do
+ActiveRecord::Schema.define(version: 2019_06_17_211348) do
 
   create_table "aulas", force: :cascade do |t|
-    t.integer "Numero"
-    t.integer "Piso"
-    t.integer "Capacidad"
+    t.integer "numero"
+    t.integer "piso"
+    t.integer "capacidad"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "cursos", force: :cascade do |t|
+    t.string "nombre"
+    t.string "carrera"
+    t.integer "cantidadalumnos"
+    t.string "turno"
+    t.string "comision"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

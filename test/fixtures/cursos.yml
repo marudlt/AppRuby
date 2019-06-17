@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  nombre: MyString
+  carrera: MyString
+  cantidadalumnos: 1
+  turno: MyString
+  comision: MyString
+
+two:
+  nombre: MyString
+  carrera: MyString
+  cantidadalumnos: 1
+  turno: MyString
+  comision: MyString
