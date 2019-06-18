@@ -71,4 +71,10 @@ class CursosController < ApplicationController
     def curso_params
       params.require(:curso).permit(:nombre, :carrera, :cantidadalumnos, :turno, :comision)
     end
+
+
+
+
+
+    
 end
