@@ -28,7 +28,7 @@
 
   <div class="field">
     <%= form.label :turno %>
-    <%= form.text_field :turno %>
+    <%= form.select(:turno, Curso::CLASS_LIST) %>
   </div>
 
   <div class="field">
