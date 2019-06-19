@@ -3,5 +3,12 @@ class WelcomeController < ApplicationController
     @tutor='El grupo de Ruby On Rails'
     @cursoscargados=Curso.count
     @aulascargadas=Aula.count
+
+@cursosmañana=Curso.where(turno:'Mañana')
+@cursostarde=Curso.where(turno:'Tarde')
+@cursosnoche=Curso.where(turno:'Noche')
+
+@dias=["Lunes","Martes","Miecoles","Jueves","Viernes"]
+
   end
 end
