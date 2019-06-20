@@ -11,44 +11,54 @@
 <h2>Cursos cargados turno noche: <%= @cursosnoche.count %></h2>
 
 
-
 <% if @aulascargadas >= 1 %>
 
     <p> hay <%= @aulascargadas %> aulas cargadas </p>
-    
-                
 
-                <% if @cursoscargados >=1 %>
+            <% if @cursoscargados >=1 %>
 
-                <% @aulastodas.each do |p| %>
+            <p> hay <%= @cursoscargados %> cursos cargadas </p>
 
-                            <% if p.asignada=true %>
+                         <table border=1>
 
-                            <p>Aula <%= p.numero %> Turno Mañana </p>
+                        <tr>
+                        <% @dias.each do |p| %>
+                        <td><%= p %></td>
+                        <% end %>
+                        </tr>
 
-                            <table border=1>
-                            <tr>
-                            <% @dias.each do |p| %>
-                            <td><%= p %></td>
-                            <% end %>
-                            </tr>
+                        <tr>
+                        <% @cursosnoche.each do |p| %>
+                        <td><%= p.nombre %></td>
+                        <% end %>
+                        </tr>
 
-                </table>
+                        <tr>
+                        <% @cursosnoche.each do |p| %>
+                        <td><%= p.comision %></td>
+                        <% end %>
+                        </tr>
+
+            <% else %>
+            
+            <p> no hay <%= @cursoscargados %> cursos cargadas </p>
+
+            <% end if %>
 
 
-
-                <% else %>
-
-                <% end %>
 
 
 <% else %>
 
-    <p> No hay aulas cargadas </p>
-    <p> Estos cursos no podrán ubicarse:</p>
+<p> No hay aulas cargadas </p>
+<p> Estos cursos no podrán ubicarse:</p>
 
-    <% @cursosnoche.each do |p| %>
-    <td><%= p.nombre %></td>
-    <% end %>
-
+<% @cursosnoche.each do |p| %>
+<td><%= p.nombre %></td>
 <% end %>
+
+<% end if %>
+
+
+
+
