@@ -17,7 +17,7 @@ class AulasControllerTest < ActionDispatch::IntegrationTest
 
   test "should create aula" do
     assert_difference('Aula.count') do
-      post aulas_url, params: { aula: { capacidad: @aula.capacidad, numero: @aula.numero, piso: @aula.piso } }
+      post aulas_url, params: { aula: { asignada: @aula.asignada, capacidad: @aula.capacidad, numero: @aula.numero, piso: @aula.piso } }
     end
 
     assert_redirected_to aula_url(Aula.last)
@@ -34,7 +34,7 @@ class AulasControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update aula" do
-    patch aula_url(@aula), params: { aula: { capacidad: @aula.capacidad, numero: @aula.numero, piso: @aula.piso } }
+    patch aula_url(@aula), params: { aula: { asignada: @aula.asignada, capacidad: @aula.capacidad, numero: @aula.numero, piso: @aula.piso } }
     assert_redirected_to aula_url(@aula)
   end
 

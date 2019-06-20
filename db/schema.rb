@@ -10,12 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_17_211348) do
+ActiveRecord::Schema.define(version: 2019_06_20_023413) do
 
   create_table "aulas", force: :cascade do |t|
     t.integer "numero"
     t.integer "piso"
     t.integer "capacidad"
+    t.boolean "asignada"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -26,6 +27,7 @@ ActiveRecord::Schema.define(version: 2019_06_17_211348) do
     t.integer "cantidadalumnos"
     t.string "turno"
     t.string "comision"
+    t.boolean "asignado"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

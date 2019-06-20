@@ -6,6 +6,7 @@ one:
   cantidadalumnos: 1
   turno: MyString
   comision: MyString
+  asignado: false
 
 two:
   nombre: MyString
@@ -13,3 +14,4 @@ two:
   cantidadalumnos: 1
   turno: MyString
   comision: MyString
+  asignado: false

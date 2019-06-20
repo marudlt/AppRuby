@@ -28,12 +28,17 @@
 
   <div class="field">
     <%= form.label :turno %>
-    <%= form.select(:turno, Curso::CLASS_LIST) %>
+    <%= form.text_field :turno %>
   </div>
 
   <div class="field">
     <%= form.label :comision %>
     <%= form.text_field :comision %>
+  </div>
+
+  <div class="field">
+    <%= form.label :asignado %>
+    <%= form.check_box :asignado %>
   </div>
 
   <div class="actions">

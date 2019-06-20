@@ -4,6 +4,7 @@ class CreateAulas < ActiveRecord::Migration[5.2]
       t.integer :numero
       t.integer :piso
       t.integer :capacidad
+      t.boolean :asignada
 
       t.timestamps
     end

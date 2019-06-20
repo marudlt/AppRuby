@@ -6,6 +6,7 @@ class CreateCursos < ActiveRecord::Migration[5.2]
       t.integer :cantidadalumnos
       t.string :turno
       t.string :comision
+      t.boolean :asignado
 
       t.timestamps
     end

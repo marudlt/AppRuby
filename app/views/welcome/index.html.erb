@@ -12,60 +12,34 @@
 
 
 
-
-
-
-    <% @aux_aula=Aula.deep_dup %>
-    <% @aux_aula_cant=@aux_aula.count %>
-
-     <% @aux_cursos_tm=@cursosmañana.deep_dup %>
-                    <% @aux_cursos_tt=@cursostarde.deep_dup %>
-                    <% @aux_cursos_tn=@cursosnoche.deep_dup %>
-
 <% if @aulascargadas >= 1 %>
-    <p> hay  <%= @aulascargadas %> aulas cargadas </p>
+
+    <p> hay <%= @aulascargadas %> aulas cargadas </p>
     
+                
 
+                <% if @cursoscargados >=1 %>
 
-            <% if @aux_aula.count >= 1 %>
+                <% @aulastodas.each do |p| %>
 
-                   
+                            <% if p.asignada=true %>
 
-                                <table>
+                            <p>Aula <%= p.numero %> Turno Mañana </p>
 
-                    <tr>
-<% @aux_cursos_tt.each do |p| %>
-<td><%= p.nombre %></td>
-<% @aux_cursos_tt.delete(p)%>
-<td> <%= @aux_cursos_tt.count %> </td>
-<% end %>
-</tr>
+                            <table border=1>
+                            <tr>
+                            <% @dias.each do |p| %>
+                            <td><%= p %></td>
+                            <% end %>
+                            </tr>
 
-
-                                <tr>
-                                
-                                <td><%= @aux_aula_cant %></td>
-                                
-                                </tr>
-                                </table>
-
-                                <% %>
+                </table>
 
 
 
+                <% else %>
 
-
-
-
-
-
-                                <% else %>
-            
-            <p>No hay cursos cargados</p>
-
-            <% end %>
-
-
+                <% end %>
 
 
 <% else %>
@@ -73,38 +47,8 @@
     <p> No hay aulas cargadas </p>
     <p> Estos cursos no podrán ubicarse:</p>
 
-    <% @cursosmañana.each do |p| %>
+    <% @cursosnoche.each do |p| %>
     <td><%= p.nombre %></td>
     <% end %>
 
 <% end %>
-
-
-
-
-
-
-
-
-
-<table border=1>
-
-<tr>
-<% @dias.each do |p| %>
-<td><%= p %></td>
-<% end %>
-</tr>
-
-<tr>
-<% @cursosmañana.each do |p| %>
-<td><%= p.nombre %></td>
-<% end %>
-</tr>
-
-<tr>
-<% @cursosmañana.each do |p| %>
-<td><%= p.comision %></td>
-<% end %>
-</tr>
-
-</table>

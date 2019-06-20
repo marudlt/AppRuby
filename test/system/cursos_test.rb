@@ -14,6 +14,7 @@ class CursosTest < ApplicationSystemTestCase
     visit cursos_url
     click_on "New Curso"
 
+    check "Asignado" if @curso.asignado
     fill_in "Cantidadalumnos", with: @curso.cantidadalumnos
     fill_in "Carrera", with: @curso.carrera
     fill_in "Comision", with: @curso.comision
@@ -29,6 +30,7 @@ class CursosTest < ApplicationSystemTestCase
     visit cursos_url
     click_on "Edit", match: :first
 
+    check "Asignado" if @curso.asignado
     fill_in "Cantidadalumnos", with: @curso.cantidadalumnos
     fill_in "Carrera", with: @curso.carrera
     fill_in "Comision", with: @curso.comision

@@ -14,6 +14,7 @@ class AulasTest < ApplicationSystemTestCase
     visit aulas_url
     click_on "New Aula"
 
+    check "Asignada" if @aula.asignada
     fill_in "Capacidad", with: @aula.capacidad
     fill_in "Numero", with: @aula.numero
     fill_in "Piso", with: @aula.piso
@@ -27,6 +28,7 @@ class AulasTest < ApplicationSystemTestCase
     visit aulas_url
     click_on "Edit", match: :first
 
+    check "Asignada" if @aula.asignada
     fill_in "Capacidad", with: @aula.capacidad
     fill_in "Numero", with: @aula.numero
     fill_in "Piso", with: @aula.piso
