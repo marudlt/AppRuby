@@ -19,25 +19,152 @@
 
             <p> hay <%= @cursoscargados %> cursos cargadas </p>
 
-                         <table border=1>
 
-                        <tr>
+                    <% @aulastodas.each do |p| %>
+
+                        
+
+                        <table border=1>
+
+                        <p>Aula <%= p.numero %> </p>
+
+                        <tr>    
                         <% @dias.each do |p| %>
-                        <td><%= p %></td>
+                        <th><%= p %></th>
+                        <% end %>
+                        </tr>           
+                   
+                        
+                        <tr>
+                        <% x=1%>
+                        <% @cursosmañana.each do |c| %>      
+                        <% if x <=5 && !c.asignado %>                    
+                        <th>Curso: <%= c.nombre %></th>
+                        <% x = x + 1 %>                       
+                        <% end %>
                         <% end %>
                         </tr>
 
                         <tr>
-                        <% @cursosnoche.each do |p| %>
-                        <td><%= p.nombre %></td>
+                        <% x=1%>
+                        <% @cursosmañana.each do |c| %>      
+                        <% if x <=5 && !c.asignado %>                    
+                        <td>Comision: <%= c.comision %></td>
+                        <% x = x + 1 %>                       
+                        <% end %>
+                        <% end %>
+                        </tr>               
+                        
+                        <tr>
+                        <% x=1%>
+                        <% @cursosmañana.each do |c| %>      
+                        <% if x <=5 && !c.asignado %>                    
+                        <td>Turno: <%= c.turno %></td>
+                        <% x = x + 1 %>      
+                        <% c.toggle(:asignado) %>                 
+                        <% end %>
+                        <% end %>
+                        </tr> 
+                        
+                        <br> 
+                        
+
+                        <tr>    
+                        <% @dias.each do |p| %>
+                        <th><%= p %></th>
+                        <% end %>
+                        </tr>           
+                   
+                        
+                        <tr>
+                        <% x=1%>
+                        <% @cursostarde.each do |c| %>      
+                        <% if x <=5 && !c.asignado %>                    
+                        <th>Curso: <%= c.nombre %></th>
+                        <% x = x + 1 %>                       
+                        <% end %>
                         <% end %>
                         </tr>
 
                         <tr>
-                        <% @cursosnoche.each do |p| %>
-                        <td><%= p.comision %></td>
+                        <% x=1%>
+                        <% @cursostarde.each do |c| %>      
+                        <% if x <=5 && !c.asignado %>                    
+                        <td>Comision: <%= c.comision %></td>
+                        <% x = x + 1 %>                       
+                        <% end %>
+                        <% end %>
+                        </tr>               
+                        
+                        <tr>
+                        <% x=1%>
+                        <% @cursostarde.each do |c| %>      
+                        <% if x <=5 && !c.asignado %>                    
+                        <td>Turno: <%= c.turno %></td>
+                        <% x = x + 1 %>      
+                        <% c.toggle(:asignado) %>                 
+                        <% end %>
+                        <% end %>
+                        </tr> 
+
+
+                        <br> 
+
+
+                        <tr>    
+                        <% @dias.each do |p| %>
+                        <th><%= p %></th>
+                        <% end %>
+                        </tr>           
+                   
+                        
+                        <tr>
+                        <% x=1%>
+                        <% @cursosnoche.each do |c| %>      
+                        <% if x <=5 && !c.asignado %>                    
+                        <th>Curso: <%= c.nombre %></th>
+                        <% x = x + 1 %>                       
+                        <% end %>
                         <% end %>
                         </tr>
+
+                        <tr>
+                        <% x=1%>
+                        <% @cursosnoche.each do |c| %>      
+                        <% if x <=5 && !c.asignado %>                    
+                        <td>Comision: <%= c.comision %></td>
+                        <% x = x + 1 %>                       
+                        <% end %>
+                        <% end %>
+                        </tr>               
+                        
+                        <tr>
+                        <% x=1%>
+                        <% @cursosnoche.each do |c| %>      
+                        <% if x <=5 && !c.asignado %>                    
+                        <td>Turno: <%= c.turno %></td>
+                        <% x = x + 1 %>      
+                        <% c.toggle(:asignado) %>                 
+                        <% end %>
+                        <% end %>
+                        </tr> 
+
+
+
+                        
+                        
+                    <% end %>
+
+                        </table>
+
+                    <p>Los siguientes cursos no tienen aulas disponibles:</p>
+
+                    <% @cursosmañana.each do |c| %>
+                    <% if !c.asignado %>                    
+                    <p>Curso: <%= c.nombre %> Comision: <%= c.comision %> Turno: <%= c.turno %></p>          
+                    <% end %>
+                    <% end %>
+
 
             <% else %>
             
@@ -57,8 +184,8 @@
 <td><%= p.nombre %></td>
 <% end %>
 
-<% end if %>
+<% end %>
 
 
 
-
+ 
