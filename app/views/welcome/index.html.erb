@@ -1,9 +1,7 @@
 <h1>Generador de Horarios UAI</h1>
 <h2>Tutor: <%= @tutor %></h2>
-
 <p>Cargue las aulas <a href="/aulas">AQUI</a></p>
 <p>Cargue los cursos <a href="/cursos">AQUI</a></p>
-
 
 <h2>Cantidad de aulas cargadas: <%= @aulascargadas %></h2>
 <h2>Cantidad de cursos cargados: <%= @cursoscargados %></h2>
@@ -14,39 +12,99 @@
 
 
 
+
+
+
+    <% @aux_aula=Aula.deep_dup %>
+    <% @aux_aula_cant=@aux_aula.count %>
+
+     <% @aux_cursos_tm=@cursosmañana.deep_dup %>
+                    <% @aux_cursos_tt=@cursostarde.deep_dup %>
+                    <% @aux_cursos_tn=@cursosnoche.deep_dup %>
+
+<% if @aulascargadas >= 1 %>
+    <p> hay  <%= @aulascargadas %> aulas cargadas </p>
+    
+
+
+            <% if @aux_aula.count >= 1 %>
+
+                   
+
+                                <table>
+
+                    <tr>
+<% @aux_cursos_tt.each do |p| %>
+<td><%= p.nombre %></td>
+<% @aux_cursos_tt.delete(p)%>
+<td> <%= @aux_cursos_tt.count %> </td>
+<% end %>
+</tr>
+
+
+                                <tr>
+                                
+                                <td><%= @aux_aula_cant %></td>
+                                
+                                </tr>
+                                </table>
+
+                                <% %>
+
+
+
+
+
+
+
+
+
+                                <% else %>
+            
+            <p>No hay cursos cargados</p>
+
+            <% end %>
+
+
+
+
+<% else %>
+
+    <p> No hay aulas cargadas </p>
+    <p> Estos cursos no podrán ubicarse:</p>
+
+    <% @cursosmañana.each do |p| %>
+    <td><%= p.nombre %></td>
+    <% end %>
+
+<% end %>
+
+
+
+
+
+
+
+
+
 <table border=1>
 
 <tr>
-
 <% @dias.each do |p| %>
-
 <td><%= p %></td>
-
 <% end %>
-
 </tr>
 
 <tr>
-
 <% @cursosmañana.each do |p| %>
-
 <td><%= p.nombre %></td>
-
 <% end %>
-
 </tr>
 
 <tr>
-
 <% @cursosmañana.each do |p| %>
-
 <td><%= p.comision %></td>
-
 <% end %>
-
 </tr>
-
 
 </table>
-  
-
