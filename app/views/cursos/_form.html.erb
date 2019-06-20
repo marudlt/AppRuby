@@ -18,7 +18,7 @@
 
   <div class="field">
     <%= form.label :carrera %>
-    <%= form.text_field :carrera %>
+    <%= form.select(:carrera, Curso::CLASS_LIST_CARRERA) %>
   </div>
 
   <div class="field">
@@ -28,12 +28,12 @@
 
   <div class="field">
     <%= form.label :turno %>
-    <%= form.text_field :turno %>
+    <%= form.select(:turno, Curso::CLASS_LIST_TURNO) %>
   </div>
 
   <div class="field">
     <%= form.label :comision %>
-    <%= form.text_field :comision %>
+    <%= form.select(:comision, Curso::CLASS_LIST_COMISION) %>
   </div>
 
   <div class="field">

@@ -10,17 +10,13 @@
 <h2>Cursos cargados turno tarde: <%= @cursostarde.count %></h2>
 <h2>Cursos cargados turno noche: <%= @cursosnoche.count %></h2>
 
+<br>
 
 <% if @aulascargadas >= 1 %>
 
-    <p> hay <%= @aulascargadas %> aulas cargadas </p>
-
             <% if @cursoscargados >=1 %>
 
-            <p> hay <%= @cursoscargados %> cursos cargadas </p>
-
-
-                    <% @aulastodas.each do |p| %>
+                         <% @aulastodas.each do |p| %>
 
                         
 
@@ -39,8 +35,14 @@
                         <% x=1%>
                         <% @cursosmañana.each do |c| %>      
                         <% if x <=5 && !c.asignado %>                    
-                        <th>Curso: <%= c.nombre %></th>
+                        <td>Curso: <%= c.nombre %></td>
                         <% x = x + 1 %>                       
+                        <% end %>
+                        <% end %>
+                                                <% if x < 5 %>
+                        <% while x <=5 %>
+                        <td ROWSPAN="3">Aula Disponible</td>
+                        <% x= x+1 %>
                         <% end %>
                         <% end %>
                         </tr>
@@ -66,7 +68,7 @@
                         <% end %>
                         </tr> 
                         
-                        <br> 
+                     
                         
 
                         <tr>    
@@ -80,8 +82,14 @@
                         <% x=1%>
                         <% @cursostarde.each do |c| %>      
                         <% if x <=5 && !c.asignado %>                    
-                        <th>Curso: <%= c.nombre %></th>
+                        <td>Curso: <%= c.nombre %></td>
                         <% x = x + 1 %>                       
+                        <% end %>                    
+                        <% end %>
+                        <% if x < 5 %>
+                        <% while x <=5 %>
+                        <td ROWSPAN="3">Aula Disponible</td>
+                        <% x= x+1 %>
                         <% end %>
                         <% end %>
                         </tr>
@@ -108,7 +116,7 @@
                         </tr> 
 
 
-                        <br> 
+                     
 
 
                         <tr>    
@@ -122,8 +130,14 @@
                         <% x=1%>
                         <% @cursosnoche.each do |c| %>      
                         <% if x <=5 && !c.asignado %>                    
-                        <th>Curso: <%= c.nombre %></th>
+                        <td>Curso: <%= c.nombre %></td>
                         <% x = x + 1 %>                       
+                        <% end %>
+                        <% end %>
+                        <% if x < 5 %>
+                        <% while x <=5 %>
+                        <td ROWSPAN="3">Aula Disponible</td>
+                        <% x= x+1 %>
                         <% end %>
                         <% end %>
                         </tr>

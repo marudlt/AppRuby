@@ -1,2 +1,7 @@
 class Curso < ApplicationRecord
+
+CLASS_LIST_TURNO= ["Mañana", "Tarde", "Noche"]
+CLASS_LIST_COMISION=["1A","1B","1K","2A","2B","3A","3B","3K","4A","4B","4K"]
+CLASS_LIST_CARRERA=["Licenciatura en Gestión de la Técnología Informática","Ingenieria en Sistemas de la Información"]
+
 end
