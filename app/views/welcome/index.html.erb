@@ -16,26 +16,45 @@
 
             <% if @cursoscargados >=1 %>
 
-                         <% @aulastodas.each do |p| %>
+                <% aulas_sort= @aulastodas.sort_by{|e| -e[:capacidad]} %>
+
+                <% curso_tm_sort= @cursosmañana.sort_by{|e| -e[:cantidadalumnos]} %>
+                <% curso_tt_sort= @cursostarde.sort_by{|e| -e[:cantidadalumnos]} %>
+                <% curso_tn_sort= @cursosnoche.sort_by{|e| -e[:cantidadalumnos]} %>
+
+
+
+
+
+
+
+
+
+                         <% aulas_sort.each do |p| %>
 
                         
 
                         <table border=1>
 
-                        <p>Aula <%= p.numero %> </p>
+                        
+<%# AQUI VA CON CONDICIONAL PISO 7 y Carrera Ingenieria en Sistemas%>
+
+<% if p.piso==7 %>
+
+<p><strong>Aula <%= p.numero %> - Piso: <%= p.piso %> - Capacidad: <%= p.capacidad %> </strong></p>
+
 
                         <tr>    
                         <% @dias.each do |p| %>
                         <th><%= p %></th>
                         <% end %>
-                        </tr>           
-                   
-                        
+                        </tr>   
+
                         <tr>
                         <% x=1%>
-                        <% @cursosmañana.each do |c| %>      
-                        <% if x <=5 && !c.asignado %>                    
-                        <td>Curso: <%= c.nombre %></td>
+                        <% curso_tm_sort.each do |c| %>      
+                        <% if x <=5 && !c.asignado && c.cantidadalumnos <= p.capacidad && c.carrera!="Lic. en Informática" && p.piso==7 %>                    
+                        <td>Curso: <%= c.nombre %> - Carrera: <%= c.carrera %></td>
                         <% x = x + 1 %>                       
                         <% end %>
                         <% end %>
@@ -49,8 +68,8 @@
 
                         <tr>
                         <% x=1%>
-                        <% @cursosmañana.each do |c| %>      
-                        <% if x <=5 && !c.asignado %>                    
+                        <% curso_tm_sort.each do |c| %>      
+                        <% if x <=5 && !c.asignado && c.cantidadalumnos <= p.capacidad && c.carrera!="Lic. en Informática" && p.piso==7%>                               
                         <td>Comision: <%= c.comision %></td>
                         <% x = x + 1 %>                       
                         <% end %>
@@ -59,17 +78,14 @@
                         
                         <tr>
                         <% x=1%>
-                        <% @cursosmañana.each do |c| %>      
-                        <% if x <=5 && !c.asignado %>                    
-                        <td>Turno: <%= c.turno %></td>
+                        <% curso_tm_sort.each do |c| %>                  
+                        <% if x <=5 && !c.asignado && c.cantidadalumnos <= p.capacidad && c.carrera!="Lic. en Informática" && p.piso==7%>                
+                        <td>Turno: <%= c.turno %> Cant. Alum: <%= c.cantidadalumnos %></td>
                         <% x = x + 1 %>      
                         <% c.toggle(:asignado) %>                 
                         <% end %>
                         <% end %>
                         </tr> 
-                        
-                     
-                        
 
                         <tr>    
                         <% @dias.each do |p| %>
@@ -80,9 +96,9 @@
                         
                         <tr>
                         <% x=1%>
-                        <% @cursostarde.each do |c| %>      
-                        <% if x <=5 && !c.asignado %>                    
-                        <td>Curso: <%= c.nombre %></td>
+                        <% curso_tt_sort.each do |c| %>      
+                        <% if x <=5 && !c.asignado && c.cantidadalumnos <= p.capacidad && c.carrera!="Lic. en Informática" && p.piso==7%>                
+                        <td>Curso: <%= c.nombre %> - Carrera: <%= c.carrera %></td>
                         <% x = x + 1 %>                       
                         <% end %>                    
                         <% end %>
@@ -96,8 +112,8 @@
 
                         <tr>
                         <% x=1%>
-                        <% @cursostarde.each do |c| %>      
-                        <% if x <=5 && !c.asignado %>                    
+                        <% curso_tt_sort.each do |c| %>      
+                        <% if x <=5 && !c.asignado && c.cantidadalumnos <= p.capacidad && c.carrera!="Lic. en Informática" && p.piso==7%>                
                         <td>Comision: <%= c.comision %></td>
                         <% x = x + 1 %>                       
                         <% end %>
@@ -106,20 +122,16 @@
                         
                         <tr>
                         <% x=1%>
-                        <% @cursostarde.each do |c| %>      
-                        <% if x <=5 && !c.asignado %>                    
-                        <td>Turno: <%= c.turno %></td>
+                        <% curso_tt_sort.each do |c| %>      
+                        <% if x <=5 && !c.asignado && c.cantidadalumnos <= p.capacidad && c.carrera!="Lic. en Informática" && p.piso==7%>                
+                        <td>Turno: <%= c.turno %> Cant. Alum: <%= c.cantidadalumnos %></td>
                         <% x = x + 1 %>      
                         <% c.toggle(:asignado) %>                 
                         <% end %>
                         <% end %>
                         </tr> 
 
-
-                     
-
-
-                        <tr>    
+                         <tr>    
                         <% @dias.each do |p| %>
                         <th><%= p %></th>
                         <% end %>
@@ -128,9 +140,9 @@
                         
                         <tr>
                         <% x=1%>
-                        <% @cursosnoche.each do |c| %>      
-                        <% if x <=5 && !c.asignado %>                    
-                        <td>Curso: <%= c.nombre %></td>
+                        <% curso_tn_sort.each do |c| %>      
+                        <% if x <=5 && !c.asignado && c.cantidadalumnos <= p.capacidad && c.carrera!="Lic. en Informática" && p.piso==7%>                
+                        <td>Curso: <%= c.nombre %> - Carrera: <%= c.carrera %></td>
                         <% x = x + 1 %>                       
                         <% end %>
                         <% end %>
@@ -144,8 +156,8 @@
 
                         <tr>
                         <% x=1%>
-                        <% @cursosnoche.each do |c| %>      
-                        <% if x <=5 && !c.asignado %>                    
+                        <% curso_tn_sort.each do |c| %>      
+                        <% if x <=5 && !c.asignado && c.cantidadalumnos <= p.capacidad && c.carrera!="Lic. en Informática" && p.piso==7%>                
                         <td>Comision: <%= c.comision %></td>
                         <% x = x + 1 %>                       
                         <% end %>
@@ -154,9 +166,155 @@
                         
                         <tr>
                         <% x=1%>
-                        <% @cursosnoche.each do |c| %>      
-                        <% if x <=5 && !c.asignado %>                    
-                        <td>Turno: <%= c.turno %></td>
+                        <% curso_tn_sort.each do |c| %>      
+                        <% if x <=5 && !c.asignado && c.cantidadalumnos <= p.capacidad && c.carrera!="Lic. en Informática" && p.piso==7%>                
+                        <td>Turno: <%= c.turno %> Cant. Alum: <%= c.cantidadalumnos %></td>
+                        <% x = x + 1 %>      
+                        <% c.toggle(:asignado) %>                 
+                        <% end %>
+                        <% end %>
+                        </tr>
+
+                                
+                   
+
+
+<% end %>
+
+<% end %>
+
+
+
+<% aulas_sort.each do |p| %>
+
+<table border=1>
+
+                        <p><strong>Aula <%= p.numero %> - Piso: <%= p.piso %> - Capacidad: <%= p.capacidad %> </strong></p>
+
+                        <tr>    
+                        <% @dias.each do |p| %>
+                        <th><%= p %></th>
+                        <% end %>
+                        </tr>   
+
+                        <tr>
+                        <% x=1%>
+                        <% curso_tm_sort.each do |c| %>      
+                        <% if x <=5 && !c.asignado && c.cantidadalumnos <= p.capacidad && p.piso!=7 %>                    
+                        <td>Curso: <%= c.nombre %> - Carrera: <%= c.carrera %></td>
+                        <% x = x + 1 %>                       
+                        <% end %>
+                        <% end %>
+                        <% if x <= 5 %>
+                        <% while x <=5 %>
+                        <td ROWSPAN="3">Aula Disponible</td>
+                        <% x= x+1 %>
+                        <% end %>
+                        <% end %>
+                        </tr>
+
+                        <tr>
+                        <% x=1%>
+                        <% curso_tm_sort.each do |c| %>      
+                        <% if x <=5 && !c.asignado && c.cantidadalumnos <= p.capacidad && p.piso!=7 %>                
+                        <td>Comision: <%= c.comision %></td>
+                        <% x = x + 1 %>                       
+                        <% end %>
+                        <% end %>
+                        </tr>               
+                        
+                        <tr>
+                        <% x=1%>
+                        <% curso_tm_sort.each do |c| %>      
+                        <% if x <=5 && !c.asignado && c.cantidadalumnos <= p.capacidad && p.piso!=7 %>                   
+                        <td>Turno: <%= c.turno %> Cant. Alum: <%= c.cantidadalumnos %></td>
+                        <% x = x + 1 %>      
+                        <% c.toggle(:asignado) %>                 
+                        <% end %>
+                        <% end %>
+                        </tr> 
+                     
+                         <tr>    
+                        <% @dias.each do |p| %>
+                        <th><%= p %></th>
+                        <% end %>
+                        </tr>  
+
+
+                        <tr>
+                        <% x=1%>
+                        <% curso_tt_sort.each do |c| %>      
+                        <% if x <=5 && !c.asignado && c.cantidadalumnos <= p.capacidad && p.piso!=7 %>                    
+                        <td>Curso: <%= c.nombre %> - Carrera: <%= c.carrera %></td>
+                        <% x = x + 1 %>                       
+                        <% end %>                    
+                        <% end %>
+                        <% if x <= 5 %>
+                        <% while x <=5 %>
+                        <td ROWSPAN="3">Aula Disponible</td>
+                        <% x= x+1 %>
+                        <% end %>
+                        <% end %>
+                        </tr>
+
+                        <tr>
+                        <% x=1%>
+                        <% curso_tt_sort.each do |c| %>      
+                        <% if x <=5 && !c.asignado && c.cantidadalumnos <= p.capacidad && p.piso!=7 %>                 
+                        <td>Comision: <%= c.comision %></td>
+                        <% x = x + 1 %>                       
+                        <% end %>
+                        <% end %>
+                        </tr>               
+                        
+                        <tr>
+                        <% x=1%>
+                        <% curso_tt_sort.each do |c| %>      
+                        <% if x <=5 && !c.asignado && c.cantidadalumnos <= p.capacidad && p.piso!=7 %>                   
+                        <td>Turno: <%= c.turno %> Cant. Alum: <%= c.cantidadalumnos %></td>
+                        <% x = x + 1 %>      
+                        <% c.toggle(:asignado) %>                 
+                        <% end %>
+                        <% end %>
+                        </tr>
+
+                        <tr>    
+                        <% @dias.each do |p| %>
+                        <th><%= p %></th>
+                        <% end %>
+                        </tr>   
+
+                        <tr>
+                        <% x=1%>
+                        <% curso_tn_sort.each do |c| %>      
+                        <% if x <=5 && !c.asignado && c.cantidadalumnos <= p.capacidad && p.piso!=7 %>                   
+                        <td>Curso: <%= c.nombre %> - Carrera: <%= c.carrera %></td>
+                        <% x = x + 1 %>                       
+                        <% end %>
+                        <% end %>
+                        <% if x <= 5 %>
+                        <% while x <=5 %>
+                        <td ROWSPAN="3">Aula Disponible</td>
+                        <% x= x+1 %>
+                        <% end %>
+                        <% end %>
+                        </tr>
+
+                        <tr>
+                        <% x=1%>
+                        <% curso_tn_sort.each do |c| %>      
+                        <% if x <=5 && !c.asignado && c.cantidadalumnos <= p.capacidad && p.piso!=7 %>              
+                        <td>Comision: <%= c.comision %></td>
+                        <% x = x + 1 %>                       
+                        <% end %>
+                        <% end %>
+                        </tr>               
+                        
+                        <tr>
+                        <% x=1%>
+                        <% curso_tn_sort.each do |c| %>      
+                        <% if x <=5 && !c.asignado && c.cantidadalumnos <= p.capacidad && p.piso!=7 %>                    
+                        <td>Turno: <%= c.turno %> Cant. Alum: <%= c.cantidadalumnos %></td>
                         <% x = x + 1 %>      
                         <% c.toggle(:asignado) %>                 
                         <% end %>
@@ -165,19 +323,118 @@
 
 
 
+
+
+
+
+
+
+<% end %>
+
+
+
+
                         
                         
-                    <% end %>
+                        
+                     
+                     
+                        
+
+                     
+                        
+
+                        
+                        
+                        
+
+<%# AQUI VA LO NORMAL %>
+
+
+                              
+                   
+                        
+                        
+
+
+
+
+
+
+
+
+
+                        
+
+                                
+                   
+                        
+                         
+
+
+                     
+
+
+                        
+
+
+
+                        
+                        
+                  
 
                         </table>
 
-                    <p>Los siguientes cursos no tienen aulas disponibles:</p>
 
-                    <% @cursosmañana.each do |c| %>
-                    <% if !c.asignado %>                    
-                    <p>Curso: <%= c.nombre %> Comision: <%= c.comision %> Turno: <%= c.turno %></p>          
+
+                    <% max=0 %>
+                    <% aulas_sort.each do |m| %>
+                    <% if m.capacidad > max %>
+                    <% max=m.capacidad %>
                     <% end %>
                     <% end %>
+
+
+                    <p>Los siguientes cursos no tienen aulas asignadas por exceso de alumnos en el curso:</p>
+
+                    <% curso_tm_sort.each do |c| %>
+                    <% if !c.asignado && c.cantidadalumnos > max %>                    
+                    <p>Curso: <%= c.nombre %> - Carrera: <%= c.carrera %> - Comision: <%= c.comision %> - Turno: <%= c.turno %> - Capacidad: <%= c.cantidadalumnos %></p>          
+                    <% end %>
+                    <% end %>
+
+                     <% curso_tt_sort.each do |c| %>
+                    <% if !c.asignado && c.cantidadalumnos > max %>                    
+                    <p>Curso: <%= c.nombre %> - Carrera: <%= c.carrera %> - Comision: <%= c.comision %> - Turno: <%= c.turno %> - Capacidad: <%= c.cantidadalumnos %></p>          
+                    <% end %>
+                    <% end %>
+
+                     <% curso_tn_sort.each do |c| %>
+                    <% if !c.asignado && c.cantidadalumnos > max %>                    
+                    <p>Curso: <%= c.nombre %> - Carrera: <%= c.carrera %> - Comision: <%= c.comision %> - Turno: <%= c.turno %> - Capacidad: <%= c.cantidadalumnos %></p>          
+                    <% end %>
+                    <% end %>
+
+                    <p>Los siguientes cursos no tienen aulas disponibles por falta de aulas:</p>
+
+                    <% curso_tm_sort.each do |c| %>
+                    <% if !c.asignado && c.cantidadalumnos <= max %>                    
+                    <p>Curso: <%= c.nombre %> - Carrera: <%= c.carrera %> - Comision: <%= c.comision %> - Turno: <%= c.turno %> - Capacidad: <%= c.cantidadalumnos %></p>          
+                    <% end %>
+                    <% end %>
+
+                    <% curso_tt_sort.each do |c| %>
+                    <% if !c.asignado && c.cantidadalumnos <= max %>                    
+                    <p>Curso: <%= c.nombre %> - Carrera: <%= c.carrera %> - Comision: <%= c.comision %> - Turno: <%= c.turno %> - Capacidad: <%= c.cantidadalumnos %></p>          
+                    <% end %>
+                    <% end %>
+
+                    <% curso_tn_sort.each do |c| %>
+                    <% if !c.asignado && c.cantidadalumnos <= max %>                    
+                    <p>Curso: <%= c.nombre %> - Carrera: <%= c.carrera %> - Comision: <%= c.comision %> - Turno: <%= c.turno %> - Capacidad: <%= c.cantidadalumnos %></p>          
+                    <% end %>
+                    <% end %>
+
 
 
             <% else %>
@@ -194,8 +451,8 @@
 <p> No hay aulas cargadas </p>
 <p> Estos cursos no podrán ubicarse:</p>
 
-<% @cursosnoche.each do |p| %>
-<td><%= p.nombre %></td>
+<% @cursostodos.each do |p| %>
+<p>Curso: <%= p.nombre %> - Comision: <%= p.comision %> - Turno: <%= p.turno %> - Capacidad: <%= p.cantidadalumnos %></p>
 <% end %>
 
 <% end %>

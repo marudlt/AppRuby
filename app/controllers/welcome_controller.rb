@@ -6,6 +6,7 @@ class WelcomeController < ApplicationController
     @aulascargadas=Aula.count
 
     @aulastodas=Aula.all
+    @cursostodos=Curso.all
 
 
    
