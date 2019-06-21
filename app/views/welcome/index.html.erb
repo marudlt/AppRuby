@@ -41,7 +41,7 @@
 
 <% if p.piso==7 %>
 
-<p><strong>Aula <%= p.numero %> - Piso: <%= p.piso %> - Capacidad: <%= p.capacidad %> </strong></p>
+<p><strong>Aula <%= p.numero %> - Piso: <%= p.piso %> - Capacidad: <%= p.capacidad %> - PRIORIDAD PARA ING. EN SISTEMAS</strong></p>
 
 
                         <tr>    
@@ -175,6 +175,8 @@
                         <% end %>
                         </tr>
 
+
+
                                 
                    
 
@@ -183,13 +185,17 @@
 
 <% end %>
 
-
+</table>
 
 <% aulas_sort.each do |p| %>
 
+    <% if p.piso!=7 %>
+
+<p><strong>Aula <%= p.numero %> - Piso: <%= p.piso %> - Capacidad: <%= p.capacidad %> </strong></p>
+
 <table border=1>
 
-                        <p><strong>Aula <%= p.numero %> - Piso: <%= p.piso %> - Capacidad: <%= p.capacidad %> </strong></p>
+                        
 
                         <tr>    
                         <% @dias.each do |p| %>
@@ -322,68 +328,13 @@
                         </tr> 
 
 
+<% end %>
 
-
-
-
-
-
+</table>
 
 <% end %>
 
-
-
-
-                        
-                        
-                        
-                     
-                     
-                        
-
-                     
-                        
-
-                        
-                        
-                        
-
-<%# AQUI VA LO NORMAL %>
-
-
-                              
-                   
-                        
-                        
-
-
-
-
-
-
-
-
-
-                        
-
-                                
-                   
-                        
-                         
-
-
-                     
-
-
-                        
-
-
-
-                        
-                        
-                  
-
-                        </table>
+                       
 
 
 
