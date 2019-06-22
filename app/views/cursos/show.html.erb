@@ -1,21 +1,36 @@
-<p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Nombre:</strong>
-  <%= @curso.nombre %>
-</p>
+<div id="wrapper">
+  <fieldset>
+    <p id="notice"><%= notice %></p>
+      <legend>Curso Generado</legend>
+      <div>
+      <p>
+        <strong>Nombre:</strong>
+        <%= @curso.nombre %>
+     </p>
+    </div>
+    <div>
+      <p>
+      <strong>Carrera:</strong>
+      <%= @curso.carrera %>
+      </p>
+    </div>
+    <div>
+      <p>
+      <strong>Carrera:</strong>
+      <%= @curso.carrera %>
+      </p>
+    </div>
+    <div>
+    <p>
+      <strong>Cantidadalumnos:</strong>
+      <%= @curso.cantidadalumnos %>
+    </p>
+  </fieldset>    
+</div>
 
-<p>
-  <strong>Carrera:</strong>
-  <%= @curso.carrera %>
-</p>
 
-<p>
-  <strong>Cantidadalumnos:</strong>
-  <%= @curso.cantidadalumnos %>
-</p>
-
-<p>
+	<p>
   <strong>Turno:</strong>
   <%= @curso.turno %>
 </p>
@@ -30,5 +45,7 @@
   <%= @curso.asignado %>
 </p>
 
-<%= link_to 'Edit', edit_curso_path(@curso) %> |
-<%= link_to 'Back', cursos_path %>
+<div class="btn">
+<%= link_to 'Editar', edit_curso_path(@curso) %> |
+<%= link_to 'Volver', cursos_path %>
+</div>
