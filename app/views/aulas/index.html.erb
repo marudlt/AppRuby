@@ -1,6 +1,19 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Aulas</h1>
+<h1>Lista de Aulas</h1>
+
+<header>
+  <nav class="be-red white">
+    <ul class = "no-list row center-xs">
+     <li class ="col-md">
+      <%= link_to 'Agregar Curso', new_curso_path %>
+     </li>
+      <li class ="col-md">
+      <%= link_to 'Agregar Aula', new_aula_path %>
+     </li>
+    </ul>
+  </nav>
+</header>
 
 <table>
   <thead>
@@ -29,5 +42,3 @@
 </table>
 
 <br>
-
-<%= link_to 'New Aula', new_aula_path %>

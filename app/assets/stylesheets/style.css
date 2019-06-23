@@ -4,10 +4,20 @@ html, body {
 }
 .no-margin{ margin: 0px;}
 
-.be-red{background-color: #5791CC}
+.be-red{background-color: rgba(86, 200, 245, 0.452)}
 .white{
     color:white;
 }
+li a:link, .be-red li a:visited {
+	color: black;
+	display: block;
+	padding: 8px 0 0 10px;
+    }
+
+ul{
+    list-style:none;
+    }
+
 .large-padding {
     padding: 15px 10px;
 }
@@ -30,18 +40,17 @@ html, body {
     outline: NONE;
 }
 
-
 #wrapper {
     width:450px;
     margin:0 auto;
     font-family:Verdana, sans-serif;
 }
 legend {
-    color:#0481b1;
+    color:  rgba(86, 200, 245, 0.452);
     font-size:16px;
     padding:0 10px;
     background:#fff;
-    -moz-border-radius:4px;
+   
     box-shadow: 0 1px 5px rgba(4, 129, 177, 0.5);
     padding:5px 10px;
     text-transform:uppercase;
@@ -117,3 +126,27 @@ textarea:focus {
     color:#999898;
     margin-bottom:3px;
 }
+
+#main-container{
+                margin: 50px auto;
+                width:800px;
+    }
+    
+    table{
+            background-color: white;
+            text-align:left;
+            border-collapse: collapse;
+            width:100%;
+    }
+    
+    th,td{
+        padding:5px;
+    }
+
+    thead{
+        background-color:  rgba(4, 129, 177, 0.5);
+        }
+
+    tr:nth-child(even) {
+        background-color: rgba(86, 200, 245, 0.452);
+        }

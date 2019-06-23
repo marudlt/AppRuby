@@ -4,8 +4,22 @@
     >
 <html lang="en">
 <head>
-    <title>Nuevo Curso</title>
+    <title>Nuevo Curso</title>  
 </head>
+
+<header>
+  <nav class="be-red white">
+    <ul class = "no-list row center-xs">
+     <li class ="col-md">
+      <a href="/cursos">Lista de cursos</a>
+     </li>
+     <li class ="col-md">
+      <%= link_to 'Agregar Aula', new_aula_path %>
+     </li>
+    </ul>
+  </nav>
+</header>
+
 <body>
 <%= form_with(model: curso, local: true) do |form| %>
   <% if curso.errors.any? %>
